@@ -1,0 +1,193 @@
+@font-face{
+	font-family:"Bookman Old Style";
+	src: url("texgyrebonum-regular.otf");
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    
+    background-image: url(hol_collage.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    
+    color: rgba(10, 10, 10, 0.85);
+    
+    font-family: "Times New Roman";
+}
+
+blockquote{
+    text-align: left;
+    margin: 10px 100px 70px;
+    font-style: italic;
+}
+blockquote p{
+    font-style: normal;
+    text-align: right;
+    margin: 15px;
+}
+p{
+    text-indent: 50px;
+    margin: 0;
+}
+.right{
+    text-align: right;
+    
+}
+.right p{
+    margin-top: 200px;
+}
+.main-container{
+    max-width: 700px;
+    box-sizing: border-box;
+    padding: 40px;
+    margin: 0 auto;
+    
+    background-color: white;
+    background-image: url(ivory-off-white-paper-texture.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    border-right: solid 1px #f8ecc2;
+    border-left: solid 1px #f8ecc2;
+    
+    text-align: center;
+    
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+}
+#site-title{
+    margin: 0;
+    margin-top: 60px;
+    font-size: 22px;
+    font-weight: 100;
+}
+#site-title em{
+    font-size: 50px;
+}
+
+.text-container{
+    text-align: justify;
+    margin: 0 auto;
+    max-width: 500px;
+}
+.text-container h1{
+    text-align: center;
+}
+span.house{
+    color: darkblue;
+}
+
+.shrinker{
+    position: absolute;
+    left: 0%;
+    top: 20%;
+    text-align: justify;
+    animation: shrink 60s infinite;
+    
+}
+.shrinker p{
+    text-indent: 0;
+    margin: 0;
+}
+
+.flipper{
+    background-color: #f8f8f5;
+    background-image: url(ivory-off-white-paper-texture.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 280px;
+    height: 280px;
+
+    margin: 20px;
+    border: solid 2px darkblue;
+    transform: rotateY(180deg);
+    transform-origin: center center;
+    text-align: justify;
+    
+    position: fixed;
+    
+    transition: 2s all;
+}
+.flipper:hover{
+    
+    
+    transition: 2s all;
+}
+.flipper p{
+    text-indent: 0;
+    margin: 0;
+}
+#not-only{
+    top: 50%;
+    left: 70%;
+}
+#not-only:hover{
+    transform: rotateY(0deg);
+}
+section{
+    margin-top: 100px;
+    position: relative;
+}
+#black-box{
+    background:url(black-paper.jpg);
+    
+    position: absolute;
+    top: 1150px;
+    left: -220px;
+    
+    animation: move 130s infinite;
+}
+footer{
+    padding: 15px 0;
+    
+    text-align: left;
+    font-size: 14px;
+}
+footer::before{
+    content: "";
+    width: 30%;
+    border-top: solid 1px black;
+    position: absolute;
+}
+footer ol{
+    padding-left: 20px;
+}
+.truant{
+    font-family: "Courier New";
+    font-weight: 100;
+    font-size: 15px;
+}
+.editors{
+    font-family: "Bookman Old Style";
+    font-size: 16px;
+}
+.black-circ{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+    
+    margin: 200px auto;
+}
+@keyframes shrink{
+    0%{
+        width: 500px;
+    }
+    50%{
+        width: 250px;
+    }
+    100%{
+        width: 500px;
+    }
+}
+@keyframes move{
+    0%{
+        transform: translateX(-50px);
+    }
+    50%{
+        transform: translateX(200px);
+    }
+    100%{
+        transform: translateX(-50px);
+    }
+    
+}
