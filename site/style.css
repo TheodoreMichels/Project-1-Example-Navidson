@@ -1,59 +1,10 @@
+/* You can use the @font-face rule to include external font files. In this case I'm using the closest thing I could find to "Bookman" - one of the fonts from the book */
 @font-face{
-	font-family:"Bookman Old Style";
-	src: url("texgyrebonum-regular.otf");
+	font-family:"Bookman Old Style"; /* Here we give it a name we can use elsewhere */
+	src: url("fonts/texgyrebonum-regular.otf"); /* Link in the actual font file */
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    
-    background-image: url(hol_collage.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    
-    color: rgba(10, 10, 10, 0.85);
-    
-    font-family: "Times New Roman";
-}
-
-blockquote{
-    text-align: left;
-    margin: 10px 100px 70px;
-    font-style: italic;
-}
-blockquote p{
-    font-style: normal;
-    text-align: right;
-    margin: 15px;
-}
-p{
-    text-indent: 50px;
-    margin: 0;
-}
-.right{
-    text-align: right;
-    
-}
-.right p{
-    margin-top: 200px;
-}
-.main-container{
-    max-width: 700px;
-    box-sizing: border-box;
-    padding: 40px;
-    margin: 0 auto;
-    
-    background-color: white;
-    background-image: url(ivory-off-white-paper-texture.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    border-right: solid 1px #f8ecc2;
-    border-left: solid 1px #f8ecc2;
-    
-    text-align: center;
-    
-    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
-}
+/**** GENERAL ****/
 #site-title{
     margin: 0;
     margin-top: 60px;
@@ -61,26 +12,134 @@ p{
     font-weight: 100;
 }
 #site-title em{
-    font-size: 50px;
+    font-size: 50px; /* Increase The Navidson Record */
 }
 
-.text-container{
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 500px;
+body{
+    margin: 0;
+    
+    background-image: url(media/hol_collage.jpg);
+    background-attachment: fixed; /* Keeps the bg image in one place */
+    background-size: cover; /* Automatically fill the parent box */
+    
+    color: rgba(10, 10, 10, 0.85); /* Not pure black - a bit more organic */
+    
+    font-family: "Times New Roman";
 }
-.text-container h1{
-    text-align: center;
+
+p{
+    text-indent: 50px;
+    margin: 0;
+}
+
+/* Chapter containers */
+section{
+    margin-top: 100px;
+    position: relative; /* For "absolute" children */
+}
+
+/* Quotes at the beginning of each chapter */
+blockquote{
+    text-align: left;
+    margin: 10px 100px 70px;
+    font-style: italic;
+}
+/* Quote sources */
+blockquote p{
+    font-style: normal;
+    text-align: right;
+    margin: 15px;
+}
+
+.right{
+    text-align: right;
+}
+.right p{
+    margin-top: 200px; /* Space out the paragraphs */
+}
+
+/* Footers at the end of each chapter */
+footer{
+    padding: 15px 0;
+    
+    text-align: left;
+    font-size: 14px;
+}
+/* A Pseudo element - used to put a line above the footer */
+footer::before{
+    content: ""; /* Even though it doesn't have text we need this empty "content" */
+    
+    position: absolute;
+    
+    width: 30%;
+    border-top: solid 1px black;    
+}
+footer ul{
+    list-style: none;
+    padding-left: 0px;
+}
+
+/**** ACCENTS ****/
+
+/* Used for initial letters in the chapter */
+strong{
+    font-size: 22px;
+}
+
+/* The book has multiple contributors, indicated with different fonts */
+span.truant{
+    font-family: "Courier New";
+    font-weight: 100;
+    font-size: 15px;
+}
+span.editors{
+    font-family: "Bookman Old Style";
+    font-size: 14px;
 }
 span.house{
     color: darkblue;
 }
 
+/**** CONTAINERS ****/
+.main-container{
+    max-width: 700px;
+    
+    box-sizing: border-box;
+    padding: 40px;
+    margin: 0 auto;
+    
+    background-color: #f8f8f5; /* This is just a backup if the image doesn't work */
+    background-image: url(media/ivory-off-white-paper-texture.jpg); /* paper texture bg */
+    background-attachment: fixed;
+    background-size: cover;
+    
+    border-right: solid 1px #f8f8f5;
+    border-left: solid 1px #f8f8f5;
+    
+    text-align: center;
+    
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3); /* "raises" the container off the page */
+}
+
+.text-container{
+    text-align: justify;
+    margin: 0 auto; /* Centers the container in its parent */
+    max-width: 500px;
+}
+.text-container h1{
+    text-align: center;
+}
+
+/**** EFFECTS ****/
 .shrinker{
     position: absolute;
     left: 0%;
-    top: 20%;
+    top: 25%;
+    
     text-align: justify;
+    
+    /* This animation is defined below - it's called "shrink" */
+    /* It runs for 60s infinitely (given the infinite keyword) */
     animation: shrink 60s infinite;
     
 }
@@ -89,86 +148,68 @@ span.house{
     margin: 0;
 }
 
-.flipper{
-    background-color: #f8f8f5;
-    background-image: url(ivory-off-white-paper-texture.jpg);
+.box{    
     background-size: cover;
     background-position: center center;
+    
+    /* Make it square */
     width: 280px;
     height: 280px;
 
-    margin: 20px;
     border: solid 2px darkblue;
-    transform: rotateY(180deg);
-    transform-origin: center center;
+    
     text-align: justify;
     
-    position: fixed;
-    
     transition: 2s all;
 }
-.flipper:hover{
-    
-    
-    transition: 2s all;
-}
-.flipper p{
+.box p{
     text-indent: 0;
     margin: 0;
 }
+
+/* The fixed box that flips around */
 #not-only{
+    position: fixed;
+    /* Note that you can set position with percentage as well */
     top: 50%;
     left: 70%;
+    
+    transform: rotateY(180deg); /* Flipped around by default */
+    
+    background-color: #f8f8f5; /* Backup again - same off white color */
+    background-image: url(media/ivory-off-white-paper-texture.jpg);
 }
 #not-only:hover{
-    transform: rotateY(0deg);
+    transform: rotateY(0deg); /* Flip back to normal on hover */
 }
-section{
-    margin-top: 100px;
-    position: relative;
-}
+
 #black-box{
-    background:url(black-paper.jpg);
+    background:url(media/black-paper.jpg);
     
-    position: absolute;
-    top: 1150px;
+    position: absolute; /* Positioned relative to its parent */
+    top: 1650px;
     left: -220px;
     
-    animation: move 130s infinite;
+    animation: move 130s infinite; /* A VERY slow move animation */
 }
-footer{
-    padding: 15px 0;
-    
-    text-align: left;
-    font-size: 14px;
-}
-footer::before{
-    content: "";
-    width: 30%;
-    border-top: solid 1px black;
-    position: absolute;
-}
-footer ol{
-    padding-left: 20px;
-}
-.truant{
-    font-family: "Courier New";
-    font-weight: 100;
-    font-size: 15px;
-}
-.editors{
-    font-family: "Bookman Old Style";
-    font-size: 16px;
-}
+
+/* Black circle at bottom of page */
 .black-circ{
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    background-color: black;
+    border-radius: 50%; /* Make it a circle */
     
-    margin: 200px auto;
+    background-color: rgba(10, 10, 10, 0.85);
+    
+    margin: 200px auto; /* Center in parent */
 }
+
+/**** ANIMATIONS ****/
+
+/* You can set specific keyframes for animations using percentage values */
+/* 0 is the beginning of the animation, 100 is the end */
 @keyframes shrink{
+    /* This animation just causes the element to shrink and grow */
     0%{
         width: 500px;
     }
@@ -179,7 +220,9 @@ footer ol{
         width: 500px;
     }
 }
+
 @keyframes move{
+    /* This animation moves the element left and right */
     0%{
         transform: translateX(-50px);
     }
